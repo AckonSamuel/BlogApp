@@ -1,24 +1,86 @@
-# README
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# BlogApp
 
-Things you may want to cover:
+> This is a fully functional website that shows the list of posts and empower readers to interact with them by adding comments, managing their blog posts and liking posts.
 
-* Ruby version
+## Built With
 
-* System dependencies
+- Ruby on Rails [click here >>](https://guides.rubyonrails.org/)
+- Rubocop: 
+- ERD schema diagram
+- Ruby
 
-* Configuration
+## Getting Started
+To get a local copy up and running follow these simple example steps.
 
-* Database creation
+### Prerequisites
+```
+  Ruby
+  Ruby on Rails
+  PostgreSQL
+```
 
-* Database initialization
+### Setup
+Clone this repository or download the Zip folder:
+```
+  $ git clone https://github.com/ademibowale/Blog-app-data-model.git
+  $ cd Blog-App
+```
 
-* How to run the test suite
+### Install
+Install all project dependencies by running the command below
+```
+  $ bundle install
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+### Run the application
+```
+  Linux
+  $ bin/rails server
+```
 
-* Deployment instructions
+```
+  Windows
+  $ ruby bin/rails server
+```
 
-* ...
+### Check linter errors
+```
+  $ rubocop
+```
+
+
+### Run tests
+
+```
+  $ Rspec spec
+
+```
+## Author
+
+👤 **Ackon Samuel**
+
+- GitHub: [@AckonSamuel](https://github.com/AckonSamuel)
+- LinkedIn: [Ackon Samuel](https://www.linkedin.com/in/samuel-yaw-ackon/) 
+- Twitter: [@dude_ackon](https://twitter.com/dude_ackon)
+
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!  
+Feel free to check the
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Hat tip to [Microverse](https://bit.ly/MicroverseTN) for giving me this project to work on
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
+
+<br />
