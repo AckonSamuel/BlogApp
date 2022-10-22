@@ -1,4 +1,4 @@
-require_relative './../rails_helper.rb'
+require_relative './../rails_helper'
 
 RSpec.describe Post, type: :model do
   before(:all) do
@@ -17,49 +17,47 @@ RSpec.describe Post, type: :model do
 
   before { subject.save }
 
-    it 'Check if title is valid' do
-      subject.title = 'Description'
-      expect(subject).to be_valid
-    end
+  it 'Check if title is valid' do
+    subject.title = 'Description'
+    expect(subject).to be_valid
+  end
 
-    it 'Check if the comments_counter is valid' do
-      subject.comments_counter = 1
-      expect(subject).to be_valid
-    end
+  it 'Check if the comments_counter is valid' do
+    subject.comments_counter = 1
+    expect(subject).to be_valid
+  end
 
-    it 'Check if likes_counter is valid' do
-      subject.likes_counter = 24
-      expect(subject).to be_valid
-    end
+  it 'Check if likes_counter is valid' do
+    subject.likes_counter = 24
+    expect(subject).to be_valid
+  end
 
-    it 'Check if it accept more than 200 character as a title' do
-        subject.title = '
+  it 'Check if it accept more than 250 character as a title' do
+    subject.title = '
         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula
         eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient
         montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque
         eu, pretium quis,'
-        expect(subject).to_not be_valid
-    end
-  
-    it 'Check if it disallow negative comments_counter ' do
-        subject.comments_counter = -1
-        expect(subject).to_not be_valid
-      
-    end
-  
-    it 'Check if it disallow negative likes_counter ' do
-        subject.likes_counter = -1
-        expect(subject).to_not be_valid
-    end
-  
-    it 'Check if it disallow non numerical value for comments_counter' do
-        subject.comments_counter = 'Burundi'
-        expect(subject).to_not be_valid
-    end
+    expect(subject).to_not be_valid
+  end
 
-    it 'Check if it disallow non numerical value for likes_counter' do
-        subject.likes_counter = 'Microverse'
-        expect(subject).to_not be_valid
-    end
-  
+  it 'Check if it disallow negative comments_counter ' do
+    subject.comments_counter = -1
+    expect(subject).to_not be_valid
+  end
+
+  it 'Check if it disallow negative likes_counter ' do
+    subject.likes_counter = -1
+    expect(subject).to_not be_valid
+  end
+
+  it 'Check if it disallow non numerical value for comments_counter' do
+    subject.comments_counter = 'Burundi'
+    expect(subject).to_not be_valid
+  end
+
+  it 'Check if it disallow non numerical value for likes_counter' do
+    subject.likes_counter = 'Microverse'
+    expect(subject).to_not be_valid
+  end
 end

@@ -1,4 +1,4 @@
-require_relative './../rails_helper.rb'
+require_relative './../rails_helper'
 
 RSpec.describe Like, type: :model do
   user = User.create(

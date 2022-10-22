@@ -1,4 +1,4 @@
-require_relative './../rails_helper.rb'
+require_relative './../rails_helper'
 
 RSpec.describe Comment, type: :model do
   user = User.create(
@@ -15,8 +15,7 @@ RSpec.describe Comment, type: :model do
 
   comment.update_comments_counter
 
-    it ' Check if it increment comments_counter' do
-      expect(Post.find(post.id).comments_counter).eql?(post.comments_counter + 1)
-    end
-
+  it ' Check if it increment comments_counter' do
+    expect(Post.find(post.id).comments_counter).eql?(post.comments_counter + 1)
+  end
 end
