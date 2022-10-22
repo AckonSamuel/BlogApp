@@ -1,4 +1,4 @@
-require 'rails_helper'
+require_relative './../rails_helper.rb'
 
 RSpec.describe Post, type: :model do
   before(:all) do
