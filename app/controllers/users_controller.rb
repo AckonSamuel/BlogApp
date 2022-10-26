@@ -3,7 +3,7 @@ class UsersController < ApplicationController
         @user = User.All
     end
     
-    def display
+    def show
         @user = User.find(param[:id])
     end
 end
