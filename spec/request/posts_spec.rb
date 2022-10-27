@@ -13,4 +13,8 @@ Rspec.describe 'Users', type: :request do
         it 'Checks if it render the correct template' do
             expect(response).to render_template(:index)
         end
+
+        it 'Checks the placeholder text' do
+            expect(response.body).to include('<h1>Users</h1>')
+        end
 end
