@@ -10,4 +10,7 @@ Rspec.describe 'Users', type: :request do
             expect(response.status).to be(200)
         end
 
+        it 'Checks if it render the correct template' do
+            expect(response).to render_template(:index)
+        end
 end
