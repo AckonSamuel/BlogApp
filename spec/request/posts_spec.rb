@@ -1,9 +1,8 @@
-require 'rails_helper'
-
-Rspec.describe 'Users', type: :request do
+require_relative './../rails_helper'
+RSpec.describe 'Users', type: :request do
     describe 'Get and checks User ' do
         before(:example) do
-            get '\users'
+            get '/users'
         end
 
         it 'Checks if the status response is success(OK)' do
