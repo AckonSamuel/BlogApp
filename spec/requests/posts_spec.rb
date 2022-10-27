@@ -19,14 +19,19 @@ RSpec.describe 'Posts', type: :request do
   end
 
   describe 'GET /show' do
+    it 'returns http success' do
+      get '/users/1/posts/1/'
+      expect(response).to have_http_status(:success)
+    end
+
     it 'Checks proper rendering' do
-      get '/users/1/posts/1'
-      expect(response).to_not render_template(:index)
+      get '/users/1/posts/1/'
+      expect(response).to render_template(:show)
     end
 
     it 'Checks proper place holder' do
-      get '/users/1/posts/1'
-      expect(response.body).to_not include('<h1>Post Post</h1>')
+      get '/users/1/posts/1/'
+      expect(response.body).to include('<h2>Lists of posts</h2>')
     end
   end
 end
