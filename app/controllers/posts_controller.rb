@@ -5,6 +5,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @posts
+    @post
   end
 end
