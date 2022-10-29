@@ -1,15 +1,9 @@
 Rails.application.routes.draw do
-  get 'likes/create'
-  get 'conmments/create'
-  get 'conmments/new'
-  get 'conmments/comment_params'
-    # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  
-    # Defines the root path route ("/")
-    # root "articles#index"
-  
-    resources :users, only: [:index, :show] do
-      resources :posts, only: [:index, :show]
+  resources :users, only: %i[index show] do
+    resources :posts, only: %i[index show create new] do
+      resources :comments, only: %i[create new]
+      resources :likes, only: [:create]
+    end
   end
-  end
-  
+  root to: 'users#index'
+end
