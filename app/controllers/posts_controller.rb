@@ -1,22 +1,22 @@
 class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @post = Post.where(user_id: params[@user.id])
+    @posts = @user.posts
   end
 
   def show
-    @post
-    @user
+    @post = Post.find(params[:id])
+    @user = User.find(params[:user_id])
   end
 
   def new
-    @user
+    @user = User.find(params[:user_id])
     @post = @user.posts.new
     render :new, locals: { post: @post }
   end
 
   def create
-    @user
+    @user = User.find(params[:user_id])
     @post = @user.posts.new(post_params)
     @post.comments_counter = 0
     @post.likes_counter = 0
@@ -30,12 +30,12 @@ class PostsController < ApplicationController
           render :new, locals: { post: @post }
         end
       end
+    end
   end
-end
 
-private
+  private
 
-def post_params
-  params.require(:new_post).permit(:title, :text)
-end
+  def post_params
+    params.require(:new_post).permit(:title, :text)
+  end
 end
