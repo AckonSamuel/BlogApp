@@ -1,1 +1,20 @@
-<h2>Lists of posts</h2>
+<h2> Specific post and its comment</h2>
+    <div class="posts">
+        <div class="card-info">
+        <h3>
+            Title : <%= @posts.title%> 
+        </h3>
+        <p>
+            Post: <%= @posts.text%> 
+        </p>
+        <p class="stats-comment"> 
+            Comments: <%= @posts.comments_counter or 0%> | 
+            Likes: <%= @posts.likes_counter or 0%> 
+        </p>
+    </div>
+    <div class='comment-container'>
+        <% @posts.comments.each do |comment| %>
+            <p> <%= comment.user.name%>: <%= comment.text%><p>
+        <% end %>
+    </div>
+</div>

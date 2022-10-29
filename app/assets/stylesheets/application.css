@@ -13,3 +13,32 @@
  *= require_tree .
  *= require_self
  */
+body {
+  max-width: 600px;
+}
+
+.user {
+  border: 1px solid #000;
+  display: flex;
+  margin: 10px;
+}
+
+.user-infos {
+  display: flex;
+  align-items: center;
+  width: 350px;
+  justify-content: space-between;
+  padding: 0 50px 0 50px;
+}
+
+.bio {
+  margin: 10px;
+  border: 0.5px solid #000;
+  padding-left: 5px;
+}
+
+.comment {
+  margin: 10px;
+  border: 0.5px solid #000;
+  list-style-type: square;
+}
