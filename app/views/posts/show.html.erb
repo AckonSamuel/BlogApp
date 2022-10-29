@@ -1,20 +1,19 @@
-<h2> Specific post and its comment</h2>
-    <div class="posts">
-        <div class="card-info">
-        <h3>
-            Title : <%= @posts.title%> 
-        </h3>
-        <p>
-            Post: <%= @posts.text%> 
-        </p>
-        <p class="stats-comment"> 
-            Comments: <%= @posts.comments_counter or 0%> | 
-            Likes: <%= @posts.likes_counter or 0%> 
-        </p>
-    </div>
-    <div class='comment-container'>
-        <% @posts.comments.each do |comment| %>
-            <p> <%= comment.user.name%>: <%= comment.text%><p>
-        <% end %>
-    </div>
+<h2>Specific post and its comment</h2>
+<div class="posts">
+  <div class="post">
+  <div class='specific-post-title'>
+    <h3><%=@post.title%> | by <%=@post.user.name%></h3>
+     <p class="stats-comment"> Comments: <%= @post.comments_counter or 0 %> | Likes: <%= @post.likes_counter or 0 %> </p>
+     </div>
+    <p>Post : <%= @post.text%> </p>
+  </div>
+  <div class="comment">
+    <% @post.comments.each do |comment| %>
+      <p> <%= comment.user.name%>: <%= comment.text%><p>
+    <% end %>
+    <%= form_with url: "/users/#{@post.user_id}/posts/#{@post.id}/likes" do |f| %>
+      <%= f.submit "Like" %>
+    <% end %>
+    <%= link_to 'Add comment', new_user_post_comment_path(@user, @post) %>
+  </div>
 </div>
