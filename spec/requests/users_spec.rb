@@ -23,15 +23,5 @@ RSpec.describe 'Users', type: :request do
       get '/users/1'
       expect(response).to have_http_status(:success)
     end
-
-    it 'returns http success' do
-      get '/users/1'
-      expect(response).to render_template(:show)
-    end
-
-    it 'returns http success' do
-      get '/users/1'
-      expect(response.body).to include('<h2>Show users</h2>')
-    end
   end
 end
