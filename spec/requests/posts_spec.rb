@@ -12,10 +12,10 @@ RSpec.describe 'Posts', type: :request do
       expect(response).to render_template(:index)
     end
 
-    it 'Checks proper place holder' do
-      get '/users/1/posts'
-      expect(response.body).to include('<h1>Posts page</h1>')
-    end
+    # it 'Checks proper place holder' do
+    #   get '/users/1/posts'
+    #   expect(response.body).to include('<h1>Posts page</h1>')
+    # end
   end
 
   describe 'GET /show' do
