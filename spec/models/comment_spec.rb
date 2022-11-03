@@ -25,5 +25,5 @@ RSpec.describe Comment, type: :model do
       Comment.create(user: @user, post: @post, text: 'I like this post')
       expect(@post.comments_counter).to eq 1
     end
-  end  
+  end
 end

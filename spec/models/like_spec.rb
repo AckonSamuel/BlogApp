@@ -7,7 +7,7 @@ RSpec.describe Like, type: :model do
     @post = Post.create(user: @user, title: 'Post title', text: 'Sample text post for test purpose', likes_counter: 0,
                         comments_counter: 0)
   end
-  
+
   context 'Associations' do
     it 'belongs to an author' do
       like = Like.reflect_on_association('user')
