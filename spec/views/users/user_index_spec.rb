@@ -29,7 +29,7 @@ RSpec.describe 'users', type: :feature do
       visit users_path
       link = page.first('a')
       link.click
-      expect(page).to have_current_path('/users/5')
+      expect(page).to have_current_path('/users/1')
     end
   end
 end
