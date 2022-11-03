@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
+
+  before(:example) do
+    @user = User.create(name: 'John Doe', id: 1)
+    @post = Post.create(user: @user, title: 'Post title', text: 'Random text in test', id: 1)
+  end
+
   describe 'GET /index' do
     it 'returns http success' do
       get '/users'

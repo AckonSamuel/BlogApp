@@ -1,21 +1,29 @@
 require_relative './../rails_helper'
 
 RSpec.describe Like, type: :model do
-  user = User.create(
-    name: 'Stephen Seber', photo: 'https://www.pexels.com/photo/grayscale-photo-of-laughing-woman-holding-her-hat-1054251/',
-    bio: 'Hey there, I am Stephen Seber.', posts_counter: 0
-  )
+  before(:all) do
+    @user = User.create(name: 'Chrispaix', photo: 'https://i.postimg.cc/yx8BkpTj/4.png ', bio: 'Tech Enthousiast from Burundi.',
+                        posts_counter: 0)
+    @post = Post.create(user: @user, title: 'Post title', text: 'Sample text post for test purpose', likes_counter: 0,
+                        comments_counter: 0)
+  end
+  
+  context 'Associations' do
+    it 'belongs to an author' do
+      like = Like.reflect_on_association('user')
+      expect(like.macro).to eq(:belongs_to)
+    end
 
-  post = Post.create(
-    title: 'Stephen post', text: 'Hey there, I am Stephen Seber.', comments_counter: 0,
-    likes_counter: 0, user_id: user.id
-  )
+    it 'belongs to a post' do
+      like = Like.reflect_on_association('post')
+      expect(like.macro).to eq(:belongs_to)
+    end
+  end
 
-  like = Like.create(post:, user:)
-
-  like.update_likes_counter
-
-  it 'Check if it increment likes_counter' do
-    expect(Post.find(post.id).likes_counter).eql?(post.likes_counter + 1)
+  context 'Custom methods' do
+    it 'updates likes counter of the post' do
+      Like.create(user: @user, post: @post)
+      expect(@post.likes_counter).to eq 1
+    end
   end
 end
