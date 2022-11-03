@@ -2,13 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'Users and user page contents', type: :feature do
   describe 'GET /' do
-    # describe 'Check the user show page' do
-    #   before do
-    #     @user = User.create(name: 'Itachi', photo: 'https://i.postimg.cc/yx8BkpTj/4.png', bio: 'lojay', posts_counter: 0)
-    #     @post = Post.create(user: @user, title: 'heloa', comments_counter: 0, likes_counter: 0)
-    #     visit '/'
-    #   end
-
     it 'Check if the users profile picture is present' do
       visit '/users/1'
       img = page.find('img')
