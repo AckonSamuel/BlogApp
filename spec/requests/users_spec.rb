@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
+  before(:example) do
+    @user = User.create(name: 'John Doe', id: 1)
+    @post = Post.create(user: @user, title: 'Post title', text: 'Random text in test', id: 1)
+  end
+
   describe 'GET /index' do
     it 'returns http success' do
       get '/users'
@@ -22,16 +27,6 @@ RSpec.describe 'Users', type: :request do
     it 'returns http success' do
       get '/users/1'
       expect(response).to have_http_status(:success)
-    end
-
-    it 'returns http success' do
-      get '/users/1'
-      expect(response).to render_template(:show)
-    end
-
-    it 'returns http success' do
-      get '/users/1'
-      expect(response.body).to include('<h2>Show users</h2>')
     end
   end
 end

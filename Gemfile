@@ -50,6 +50,8 @@ gem 'bootsnap', require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'capybara'
+  gem 'database_cleaner'
   gem 'ffi', github: 'ffi/ffi', submodules: true
   gem 'rails-controller-testing'
   gem 'rspec-rails'
@@ -68,7 +70,6 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem 'capybara'
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end

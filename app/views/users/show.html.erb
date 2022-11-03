@@ -1,11 +1,11 @@
-<h2>Post from <%=@user.name%></h2>
+<h2 class='author'>Post from <%=@user.name%></h2>
 
 <div>
 
     <%= render 'partials/user', user: @user %>
 
     <div class='bio'>
-        <h4>Bio</h4>
+        <h4 class='there'>Bio</h4>
         <p><%= @user.bio %></p>
     </div>
     
