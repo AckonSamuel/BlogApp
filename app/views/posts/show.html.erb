@@ -1,19 +1,40 @@
-<h2>Specific post and its comment</h2>
-<div class="posts">
-  <div class="post">
-  <div class='specific-post-title'>
-    <h3><%=@post.title%> | by <%=@post.user.name%></h3>
-     <p class="stats-comment"> Comments: <%= @post.comments_counter or 0 %> | Likes: <%= @post.likes_counter or 0 %> </p>
-     </div>
-    <p>Post : <%= @post.text%> </p>
+<button class='back'><%= link_to 'Back', user_posts_path(@user.id) %></button>
+<section class="posts">
+  <div class="card-info">
+    <div class='span'>
+      <h3> <%=@post.title%> by <%= @user.name%> </h3>
+      <p class="text"> Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter %> </p>
+    </div>
+    <h4> <%= @post.text%> </h4>
   </div>
-  <div class="comment">
+
+  <% if can? :destroy, @post %>
+       <%= button_to 'Delete Post',
+             user_post_path,
+             method: :delete,
+             data: {confirm: 'Are You Sure You Want to Delete This Post'}%>
+     <% end %>
+
+  <ul class='action'>
+    <%= form_with url: "/users/#{@post.user_id}/posts/#{@post.id}/likes" do |f| %>
+    <button type="submit">
+    <%= image_tag "https://www.facebook.com/reaction/image/1635855486666999/?size=20&scale=1", class: "group-hover:scale-125 transition ease-in duration-100"%>
+    likes
+    </button>
+  <% end %>
+
+  <button>
+    <%= link_to new_user_post_comment_path(@user.id, @post.id) do %>
+   <i data-visualcompletion="css-img" class="group-hover:scale-110 transition ease-in duration-100" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yK/r/H6IBF1RX3vl.png&quot;); background-position: 0px -213px; background-size: auto; width: 18px; height: 18px; background-repeat: no-repeat; display: inline-block;"></i>
+   comments
+  </button>
+    <% end %>
+  </ul>
+
+    <div class="card-info">
     <% @post.comments.each do |comment| %>
       <p> <%= comment.user.name%>: <%= comment.text%><p>
+      <%=render 'partials/comment', comment:comment %>
     <% end %>
-    <%= form_with url: "/users/#{@post.user_id}/posts/#{@post.id}/likes" do |f| %>
-      <%= f.submit "Like" %>
-    <% end %>
-    <%= link_to 'Add comment', new_user_post_comment_path(@user, @post) %>
   </div>
-</div>
+</section>
