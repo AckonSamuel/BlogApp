@@ -89,5 +89,3 @@ gem 'rack-cors'
 gem 'grape-active_model_serializers'
 
 gem 'grape_on_rails_routes'
-
-gem 'jwt'
