@@ -42,6 +42,8 @@ gem 'tzinfo-data'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
+gem 'devise'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -73,3 +75,17 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+
+gem 'letter_opener', group: :development
+
+gem 'cancancan'
+
+gem 'pagy'
+
+gem 'grape'
+
+gem 'rack-cors'
+
+gem 'grape-active_model_serializers'
+
+gem 'grape_on_rails_routes'

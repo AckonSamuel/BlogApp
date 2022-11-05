@@ -42,3 +42,22 @@ body {
   border: 0.5px solid #000;
   list-style-type: square;
 }
+
+form {
+  width: 100%;
+}
+
+.lala #user_email,
+.lala #user_password,
+.lala .actions input {
+  width: 100%;
+  margin-left: 10%;
+}
+
+.lala label {
+  visibility: hidden;
+}
+
+.shuo label {
+  visibility: visible;
+}
